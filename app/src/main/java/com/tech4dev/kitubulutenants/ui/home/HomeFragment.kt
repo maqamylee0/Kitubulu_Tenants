@@ -1,6 +1,5 @@
 package com.tech4dev.kitubulutenants.ui.home
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +11,6 @@ import com.tech4dev.kitubulutenants.R
 import com.tech4dev.kitubulutenants.adapters.TenantsListAdapter
 import com.tech4dev.kitubulutenants.databinding.FragmentHomeBinding
 import com.tech4dev.kitubulutenants.ui.detail.DetailsFragment
-import com.tech4dev.kitubulutenants.ui.detail.TenantDetail
 
 class HomeFragment : Fragment() {
     private lateinit var homeViewModel: HomeViewModel
@@ -45,16 +43,20 @@ class HomeFragment : Fragment() {
             var adapter = TenantsListAdapter(it)
             adapter.setOnItemClickListener(object : TenantsListAdapter.onItemClickListener{
                 override fun onItemClick(position: Int) {
-                    parentFragmentManager.beginTransaction().replace(R.id.container,DetailsFragment())
+
+
+                    val bundle = Bundle()
+                    bundle.putString("name",it[position].NAME)
+                    bundle.putString("name",it[position].AMOUNT)
+                    bundle.putString("name",it[position].ID)
+
+                  var  detailsFragment = DetailsFragment()
+                    detailsFragment.arguments = bundle
+                    parentFragmentManager.beginTransaction().replace(R.id.container,
+                        detailsFragment
+                    )
                         .addToBackStack(null)
                         .commit()
-//                    val bundle = Bundle()
-//                    bundle.putString("name",homeViewModel.tenantsList.n)
-//                    val intent = Intent(requireContext(), TenantDetail::class.java)
-//                    intent.putExtra("Tenant", listOfTenants.value?.get(position).toString())
-//
-//
-//                    requireContext().startActivity(intent)
                 }
 
             })

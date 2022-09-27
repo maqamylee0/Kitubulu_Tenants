@@ -4,12 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.tech4dev.kitubulutenants.Tenants
 import com.tech4dev.kitubulutenants.databinding.FragmentDashboardBinding
-import com.tech4dev.kitubulutenants.ui.home.HomeViewModel
 
 class DashboardFragment : Fragment() {
     private lateinit var dashboardViewModel: DashboardViewModel
