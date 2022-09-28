@@ -8,7 +8,9 @@
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.13802083333333334" />
         <entry key="app/src/main/res/layout/fragment_details.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.3125" />
+        <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.1890625" />
         <entry key="app/src/main/res/layout/list_layout.xml" value="0.31145833333333334" />
+        <entry key="app/src/main/res/layout/list_payment.xml" value="0.31145833333333334" />
       </map>
     </option>
   </component>

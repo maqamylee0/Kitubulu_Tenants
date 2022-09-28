@@ -35,9 +35,9 @@ class DetailsFragment : Fragment() {
 //        homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
 //        homeViewModel.tenantsList.observe(viewLifecycleOwner) {
         binding.txtName.text = bundle.getString("name")
-        binding.textView10.text = bundle.getString("amount")
+        binding.textView10.text = bundle.getInt("amount").toString()
         binding.textView4.text = bundle.getString("cell")
-        binding.textView9.text = bundle.getString("balance")
+        binding.textView9.text = bundle.getInt("balance").toString()
 
 
 

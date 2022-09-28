@@ -16,9 +16,6 @@ class HomeFragment : Fragment() {
     private lateinit var homeViewModel: HomeViewModel
 
     private var _binding: FragmentHomeBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -26,8 +23,6 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -41,15 +36,18 @@ class HomeFragment : Fragment() {
         homeViewModel.getApiData()
         homeViewModel.tenantsList.observe(viewLifecycleOwner) {
             var adapter = TenantsListAdapter(it)
+
+            binding.rvTenants.adapter = adapter
+            binding.rvTenants.layoutManager = LinearLayoutManager(requireContext())
             adapter.setOnItemClickListener(object : TenantsListAdapter.onItemClickListener{
                 override fun onItemClick(position: Int) {
 
 
                     val bundle = Bundle()
                     bundle.putString("name",it[position].NAME)
-                    bundle.putString("amount",it[position].AMOUNT.toString())
+                    bundle.putString("amount", it[position].AMOUNT.toString())
                     bundle.putString("cell",it[position].CELL)
-                    bundle.putString("balance",it[position].BALANCE.toString())
+                    bundle.putString("balance", it[position].BALANCE.toString())
 
 
                     var  detailsFragment = DetailsFragment()
@@ -62,9 +60,6 @@ class HomeFragment : Fragment() {
                 }
 
             })
-
-            binding.rvTenants.adapter = adapter
-            binding.rvTenants.layoutManager = LinearLayoutManager(requireContext())
         }
     }
 

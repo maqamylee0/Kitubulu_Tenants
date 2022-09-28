@@ -38,6 +38,7 @@ class TenantsListAdapter(private val listOfTenants: List<Tenants>): RecyclerView
 
     class TLViewHolder(itemView: View,listener: onItemClickListener):RecyclerView.ViewHolder(itemView){
         val tenantName: TextView = itemView.findViewById(R.id.tenantName)
+
        init {
            itemView.setOnClickListener(){
                listener.onItemClick(adapterPosition)

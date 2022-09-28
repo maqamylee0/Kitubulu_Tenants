@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        supportFragmentManager.beginTransaction().replace(R.id.container,HomeFragment()).commit()
+//        supportFragmentManager.beginTransaction().replace(R.id.container,HomeFragment()).commit()
     }
 
 
