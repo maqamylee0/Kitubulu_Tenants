@@ -5,22 +5,30 @@ import android.os.Parcelable
 
 data class Tenants(
     val ID: String?,
-
     val NAME: String?,
+    val AMOUNT: Int,
+    val CELL:String?,
+    val BALANCE: Int,
 
-    val AMOUNT: String?,
-):Parcelable {
+    ):Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString(),
         parcel.readString(),
-        parcel.readString()
-    ) {
+        parcel.readInt(),
+        parcel.readString(),
+        parcel.readInt(),
+
+
+        ) {
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(ID)
         parcel.writeString(NAME)
-        parcel.writeString(AMOUNT)
+        parcel.writeInt(AMOUNT)
+        parcel.writeString(CELL)
+        parcel.writeInt(BALANCE)
+
     }
 
     override fun describeContents(): Int {

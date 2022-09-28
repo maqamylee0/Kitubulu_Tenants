@@ -47,10 +47,12 @@ class HomeFragment : Fragment() {
 
                     val bundle = Bundle()
                     bundle.putString("name",it[position].NAME)
-                    bundle.putString("name",it[position].AMOUNT)
-                    bundle.putString("name",it[position].ID)
+                    bundle.putString("amount",it[position].AMOUNT.toString())
+                    bundle.putString("cell",it[position].CELL)
+                    bundle.putString("balance",it[position].BALANCE.toString())
 
-                  var  detailsFragment = DetailsFragment()
+
+                    var  detailsFragment = DetailsFragment()
                     detailsFragment.arguments = bundle
                     parentFragmentManager.beginTransaction().replace(R.id.container,
                         detailsFragment
@@ -62,7 +64,8 @@ class HomeFragment : Fragment() {
             })
 
             binding.rvTenants.adapter = adapter
-            binding.rvTenants.layoutManager = LinearLayoutManager(requireContext())         }
+            binding.rvTenants.layoutManager = LinearLayoutManager(requireContext())
+        }
     }
 
 

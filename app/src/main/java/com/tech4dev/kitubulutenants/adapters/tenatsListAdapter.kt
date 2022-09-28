@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.tech4dev.kitubulutenants.R
 import com.tech4dev.kitubulutenants.Tenants
 
-class TenantsListAdapter(val listOfTenants: List<Tenants>): RecyclerView.Adapter<TenantsListAdapter.TLViewHolder>(){
+class TenantsListAdapter(private val listOfTenants: List<Tenants>): RecyclerView.Adapter<TenantsListAdapter.TLViewHolder>(){
     private lateinit var tListener :onItemClickListener
 
     interface onItemClickListener{

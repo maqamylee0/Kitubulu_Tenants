@@ -41,7 +41,8 @@ class DashboardFragment : Fragment() {
     }
 
     private fun createTenant() {
-        val tenant = Tenants("",binding.name.text.toString(),binding.amount.text.toString())
+        val tenant = Tenants("",binding.name.text.toString(),Integer.parseInt(binding.amount.text.toString()),
+            binding.phone.text.toString(),0)
         dashboardViewModel.sendApiData(tenant)
     }
 }
